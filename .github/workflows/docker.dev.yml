@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Set lower case repository name
         run: echo "REPO_NAME=$(echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+        env: 
+            GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Checkout code
         uses: actions/checkout@v3
